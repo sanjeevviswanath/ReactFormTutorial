@@ -1,5 +1,6 @@
-//USE OF REACT HOOKFORM
-import React from "react";
+//USE OF useForm REACT HOOK
+// for useForm - npm i react-hook-form@7.43
+// import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 
 const Form = () => {
