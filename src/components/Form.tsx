@@ -4,9 +4,12 @@
 import { FieldValues, useForm } from "react-hook-form";
 
 const Form = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setFocus, resetField } = useForm();
   const onFormSubmit = (data: FieldValues) => {
     console.log(data);
+    resetField("name");
+    resetField("age");
+    setFocus("name");
   };
 
   return (
