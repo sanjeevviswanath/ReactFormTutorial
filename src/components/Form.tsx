@@ -21,7 +21,7 @@ const Form = () => {
     resetField("age");
     setFocus("name");
   };
-  //   console.log(formState.errors);
+
   return (
     <form onSubmit={handleSubmit(onFormSubmit)}>
       <div className="mb-3">
