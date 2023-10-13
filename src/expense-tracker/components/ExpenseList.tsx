@@ -15,6 +15,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
       <table className="table table-bordered">
         <thead>
           <tr>
+            <th>No</th>
             <th>Description</th>
             <th>Amount</th>
             <th>Category</th>
@@ -25,6 +26,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
         <tbody>
           {expenses.map((expense) => (
             <tr key={expense.id}>
+              <td>{expense.id}</td>
               <td>{expense.description}</td>
               <td>{expense.amount}</td>
               <td>{expense.category}</td>
@@ -41,6 +43,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
         </tbody>
         <tfoot>
           <tr>
+            <td className="fw-bold"></td>
             <td className="fw-bold">Total</td>
             <td className="fw-bold">
               $

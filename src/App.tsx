@@ -26,15 +26,21 @@ function App() {
   const filteredExpenses = selectedCategory
     ? expenses.filter((e) => e.category === selectedCategory)
     : expenses;
+  // const updatedExpenses = expenses
+  // .filter((e) => e.id !== id)
+  // .map((expense, index) => ({ ...expense, id: index + 1 }));
   return (
     <>
       {/* <FormUseRef></FormUseRef>
       <FormuseState></FormuseState>
       <Form></Form> */}
       <div className="mb-5">
+        <h1>Expense Tracker</h1>
+      </div>
+      <div className="mb-5">
         <ExpenseForm
           onSubmit={(expense) =>
-            setExpenses([{ ...expense, id: expenses.length + 1 }, ...expenses])
+            setExpenses([...expenses, { ...expense, id: expenses.length + 1 }])
           }
         />
       </div>
@@ -48,7 +54,13 @@ function App() {
       <ExpenseList
         expenses={filteredExpenses}
         onRemove={(id) => {
-          setExpenses(expenses.filter((e) => e.id !== id));
+          setExpenses(
+            expenses
+              //filtering the deleted expense object from expenses array
+              .filter((e) => e.id !== id)
+              .map((expense, index) => ({ ...expense, id: index + 1 }))
+            //rearranging the id after deleting an expense object
+          );
         }}
       ></ExpenseList>
     </>
