@@ -1,10 +1,12 @@
 // import FormUseRef from "./components/FormuseRef";
 // import FormuseState from "./components/FormuseState";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 //import Form from "./components/Form";
 import { useState } from "react";
 // const expenses = ;
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [expenses, setExpenses] = useState([
     {
       id: 1,
@@ -31,13 +33,21 @@ function App() {
       category: "Utilities",
     },
   ]);
+  const filteredExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses;
   return (
     <>
       {/* <FormUseRef></FormUseRef>
       <FormuseState></FormuseState>
       <Form></Form> */}
+      <div className="mb-3">
+        <ExpenseFilter
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        />
+      </div>
       <ExpenseList
-        expenses={expenses}
+        expenses={filteredExpenses}
         onRemove={(id) => {
           setExpenses(expenses.filter((e) => e.id !== id));
         }}
