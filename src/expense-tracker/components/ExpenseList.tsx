@@ -41,8 +41,8 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
         </tbody>
         <tfoot>
           <tr>
-            <td>Total</td>
-            <td>
+            <td className="fw-bold">Total</td>
+            <td className="fw-bold">
               $
               {expenses
                 .reduce(
