@@ -9,15 +9,19 @@ interface Props {
   onRemove: (id: number) => void;
 }
 const ExpenseList = ({ expenses, onRemove }: Props) => {
+  if (expenses.length === 0) return null;
   return (
     <div>
       <table className="table table-bordered">
         <thead>
-          <th>Description</th>
-          <th>Amount</th>
-          <th>Category</th>
-          <th></th>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th></th>
+          </tr>
         </thead>
+
         <tbody>
           {expenses.map((expense) => (
             <tr key={expense.id}>
@@ -35,6 +39,22 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>
+              $
+              {expenses
+                .reduce(
+                  (accumulator, expense) => expense.amount + accumulator,
+                  0
+                )
+                .toFixed(2)}
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
