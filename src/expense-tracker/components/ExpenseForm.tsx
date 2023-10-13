@@ -56,7 +56,7 @@ const ExpenseForm = ({ onSubmit }: Props) => {
         <input
           {...register("amount", { valueAsNumber: true })}
           id="amount"
-          type="number"
+          type="text"
           className="form-control"
         />
         {errors.amount && (

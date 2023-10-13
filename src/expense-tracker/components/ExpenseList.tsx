@@ -12,7 +12,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
   if (expenses.length === 0) return null;
   return (
     <div>
-      <table className="table table-bordered">
+      <table className="table table-bordered border-secondary table-hover">
         <thead>
           <tr>
             <th>No</th>

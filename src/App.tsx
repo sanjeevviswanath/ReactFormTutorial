@@ -35,7 +35,7 @@ function App() {
       <FormuseState></FormuseState>
       <Form></Form> */}
       <div className="mb-5">
-        <h1>Expense Tracker</h1>
+        <h1 className="display-6">Expense Tracker</h1>
       </div>
       <div className="mb-5">
         <ExpenseForm
