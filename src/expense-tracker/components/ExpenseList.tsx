@@ -1,9 +1,11 @@
+// Defining the Expense object interface
 interface Expense {
   id: number;
   description: string;
   amount: number;
   category: string;
 }
+//Defining the Props that would be passed from the App component
 interface Props {
   expenses: Expense[];
   onRemove: (id: number) => void;
@@ -46,6 +48,8 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
             <td className="fw-bold"></td>
             <td className="fw-bold">Total</td>
             <td className="fw-bold">
+              {/* The reduce function will go through each expense object in the Expenses array and
+              sumup the expense amount and return as accumulator variable */}
               $
               {expenses
                 .reduce(
