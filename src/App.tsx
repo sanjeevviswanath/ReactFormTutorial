@@ -7,34 +7,21 @@ import ExpenseList from "./expense-tracker/components/ExpenseList";
 //import categories from "./expense-tracker/categories";
 import { useState } from "react";
 // const expenses = ;
-
+type Expense = {
+  id: number;
+  category: "Groceries" | "Utilities" | "Entertainment";
+  description: string;
+  amount: number;
+};
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [expenses, setExpenses] = useState([
-    {
-      id: 1,
-      description: "Milk",
-      amount: 5,
-      category: "Groceries",
-    },
-    {
-      id: 2,
-      description: "Bread",
-      amount: 2,
-      category: "Groceries",
-    },
-    {
-      id: 3,
-      description: "Movie ticket",
-      amount: 30,
-      category: "Entertainment",
-    },
-    {
-      id: 4,
-      description: "Bus ticket",
-      amount: 26,
-      category: "Utilities",
-    },
+  const [expenses, setExpenses] = useState<Expense[]>([
+    // {
+    //   id: 0,
+    //   description: "",
+    //   amount: 0,
+    //   category: "",
+    // },
   ]);
   const filteredExpenses = selectedCategory
     ? expenses.filter((e) => e.category === selectedCategory)
@@ -52,9 +39,11 @@ function App() {
         />
       </div>
       <div className="mb-3">
-        <ExpenseFilter
-          onSelectCategory={(category) => setSelectedCategory(category)}
-        />
+        {expenses.length !== 0 && (
+          <ExpenseFilter
+            onSelectCategory={(category) => setSelectedCategory(category)}
+          />
+        )}
       </div>
       <ExpenseList
         expenses={filteredExpenses}
