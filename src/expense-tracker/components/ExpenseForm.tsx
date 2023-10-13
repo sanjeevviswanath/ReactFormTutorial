@@ -11,7 +11,7 @@ const expenseSchema = z.object({
     .max(50, "Description can have only maximum of 50 characters."),
   amount: z
     .number({ invalid_type_error: "Amount is required." })
-    .min(0.01, "Amount cannot be zero")
+    .min(0.01, "Amount cannot be less than 1 cent")
     .max(100_000, "Amount cannot be more than $100,000 USD."),
   category: z.enum(categories, {
     errorMap: () => ({ message: "Category is required." }),

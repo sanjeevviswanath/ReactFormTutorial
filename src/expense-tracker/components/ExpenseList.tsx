@@ -12,10 +12,10 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
   if (expenses.length === 0) return null;
   return (
     <div>
-      <table className="table table-bordered border-secondary table-hover">
+      <table className="table table-bordered table-hover table-border-secondary">
         <thead>
           <tr>
-            <th>No</th>
+            <th className="text-center">No</th>
             <th>Description</th>
             <th>Amount</th>
             <th>Category</th>
@@ -26,7 +26,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
         <tbody>
           {expenses.map((expense) => (
             <tr key={expense.id}>
-              <td>{expense.id}</td>
+              <td className="text-center">{expense.id}</td>
               <td>{expense.description}</td>
               <td>{expense.amount}</td>
               <td>{expense.category}</td>
