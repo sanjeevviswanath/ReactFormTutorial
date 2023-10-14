@@ -65,7 +65,7 @@ function App() {
           );
         }}
       ></ExpenseList>
-      <div>
+      {/* <div>
         <select
           className="form-select"
           onChange={(event) => setSelectedProdCategory(event.target.value)}
@@ -75,7 +75,7 @@ function App() {
           <option value="Household">Household</option>
         </select>
         <ProductList selectedCategory={selectdProdCategory} />
-      </div>
+      </div> */}
     </>
   );
 }
