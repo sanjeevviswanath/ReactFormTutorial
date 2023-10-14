@@ -3,6 +3,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import categories from "../categories";
+import { useEffect, useRef } from "react";
 
 const expenseSchema = z.object({
   description: z
