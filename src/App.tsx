@@ -6,6 +6,7 @@ import ExpenseList from "./expense-tracker/components/ExpenseList";
 //import Form from "./components/Form";
 //import categories from "./expense-tracker/categories";
 import { useState } from "react";
+import ProductList from "./components/ProductList";
 // const expenses = ;
 type Expense = {
   id: number;
@@ -63,6 +64,7 @@ function App() {
           );
         }}
       ></ExpenseList>
+      <ProductList />
     </>
   );
 }
