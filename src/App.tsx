@@ -15,6 +15,7 @@ type Expense = {
   amount: number;
 };
 function App() {
+  const [selectdProdCategory, setSelectedProdCategory] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [expenses, setExpenses] = useState<Expense[]>([
     // {
@@ -64,7 +65,17 @@ function App() {
           );
         }}
       ></ExpenseList>
-      <ProductList />
+      <div>
+        <select
+          className="form-select"
+          onChange={(event) => setSelectedProdCategory(event.target.value)}
+        >
+          <option value=""></option>
+          <option value="Clothing">Clothing</option>
+          <option value="Household">Household</option>
+        </select>
+        <ProductList selectedCategory={selectdProdCategory} />
+      </div>
     </>
   );
 }
