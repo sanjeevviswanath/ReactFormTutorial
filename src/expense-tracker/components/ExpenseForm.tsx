@@ -23,6 +23,10 @@ interface Props {
   onSubmit: (data: ExpenseFormData) => void;
 }
 const ExpenseForm = ({ onSubmit }: Props) => {
+  // after rendering the form
+  //TODO: need to fix this issue of validation error
+  //const refDescription = useRef<HTMLInputElement>(null);
+
   const {
     register,
     handleSubmit,
@@ -44,6 +48,7 @@ const ExpenseForm = ({ onSubmit }: Props) => {
           {...register("description")}
           id="description"
           type="text"
+          //ref={refDescription}
           className="form-control"
         />
         {errors.description && (
