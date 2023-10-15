@@ -11,7 +11,7 @@ const Users = () => {
   const [users, setusers] = useState<User[]>([]);
   const [error, setError] = useState("");
   useEffect(() => {
-    //TODO: get USER data from API
+    //get USER data from API
     axios
       .get<User[]>("https://sonplaceholder.typicode.com/users")
       .then((response) => {
