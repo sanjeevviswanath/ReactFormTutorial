@@ -6,6 +6,7 @@ import ExpenseList from "./expense-tracker/components/ExpenseList";
 // import Form from "./components/Form";
 //import categories from "./expense-tracker/categories";
 import { useState } from "react";
+import Users from "./components/Users";
 //import ProductList from "./components/ProductList";
 
 type Expense = {
@@ -76,6 +77,7 @@ function App() {
         </select>
         <ProductList selectedCategory={selectdProdCategory} />
       </div> */}
+      <Users></Users>
     </>
   );
 }
