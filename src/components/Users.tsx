@@ -13,7 +13,7 @@ const Users = () => {
   useEffect(() => {
     //get USER data from API
     axios
-      .get<User[]>("https://sonplaceholder.typicode.com/users")
+      .get<User[]>("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         setusers(response.data);
       })
