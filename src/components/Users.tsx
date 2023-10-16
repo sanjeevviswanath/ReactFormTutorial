@@ -51,6 +51,7 @@ const Users = () => {
     <div>
       {error && <p className="text-danger">{error}</p>}
       {isLoading && <div className="spinner-border"></div>}
+      <button className="btn btn-primary">Add User </button>
       <ul className="list-group">
         {users.map((user) => (
           <li
