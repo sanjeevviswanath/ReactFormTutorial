@@ -10,21 +10,27 @@ interface User {
 const Users = () => {
   const [users, setusers] = useState<User[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     //get USER data from API
     console.log("Connecting to API...");
     const controller = new AbortController();
+    setIsLoading(true);
     axios
-      .get<User[]>("https://xjsonplaceholder.typicode.com/users")
+      .get<User[]>("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         setusers(response.data);
       })
       .catch((error) => {
         if (error instanceof CanceledError) return;
         setError("Unable to access API: " + error.message);
+      })
+      .finally(() => {
+        // setting the loading indicator to false.
+        setIsLoading(false);
       });
     return () => {
-      //TODO: Cleanup useEffect code here
+      // Cleanup useEffect code here
       console.log("Running cleanup code");
       controller.abort();
     };
