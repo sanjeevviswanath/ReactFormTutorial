@@ -38,6 +38,7 @@ const Users = () => {
   const deleteUser = (user: User) => {
     const originalUsers = [...users];
     setusers(users.filter((u) => u.id !== user.id));
+    setError("");
     //call axios function to delete a user
     axios
       .delete("https://jsonplaceholder.typicode.com/users/" + user.id)
