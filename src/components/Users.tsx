@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { CanceledError } from "axios";
 
 interface User {
   id: number;
@@ -12,13 +12,23 @@ const Users = () => {
   const [error, setError] = useState("");
   useEffect(() => {
     //get USER data from API
+    console.log("Connecting to API...");
+    const controller = new AbortController();
     axios
-      .get<User[]>("https://jsonplaceholder.typicode.com/users")
+      .get<User[]>("https://xjsonplaceholder.typicode.com/users")
       .then((response) => {
         setusers(response.data);
       })
-      .catch((error) => setError("Unable to access API: " + error.message));
-  }, [users]);
+      .catch((error) => {
+        if (error instanceof CanceledError) return;
+        setError("Unable to access API: " + error.message);
+      });
+    return () => {
+      //TODO: Cleanup useEffect code here
+      console.log("Running cleanup code");
+      controller.abort();
+    };
+  }, []);
   return (
     <div>
       {error && <p className="text-danger">{error}</p>}
