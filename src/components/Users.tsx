@@ -72,6 +72,7 @@ const Users = () => {
     const originalUsers = [...users];
     const updatedUser = { ...user, name: user.name + "-updated" };
     setusers(users.map((u) => (u.id === user.id ? updatedUser : u)));
+    setError("");
     axios
       .patch(
         "https://jsonplaceholder.typicode.com/users/" + user.id,
