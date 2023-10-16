@@ -35,6 +35,9 @@ const Users = () => {
       controller.abort();
     };
   }, []);
+  const deleteUser = (user: User) => {
+    setusers(users.filter((u) => u.id !== user.id));
+  };
   return (
     <div>
       {error && <p className="text-danger">{error}</p>}
@@ -46,7 +49,12 @@ const Users = () => {
             className="list-group-item d-flex justify-content-between"
           >
             {user.name}
-            <button className="btn btn-outline-danger" onClick={deleteUser}>Delete</button>
+            <button
+              className="btn btn-outline-danger"
+              onClick={() => deleteUser(user)}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
