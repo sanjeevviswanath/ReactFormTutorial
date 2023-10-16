@@ -68,6 +68,20 @@ const Users = () => {
         setusers(originalUsers);
       });
   };
+  const updateUser = (user: User) => {
+    const originalUsers = [...users];
+    const updatedUser = { ...user, name: user.name + "-updated" };
+    setusers(users.map((u) => (u.id === user.id ? updatedUser : u)));
+    axios
+      .patch(
+        "https://jsonplaceholder.typicode.com/users/" + user.id,
+        updatedUser
+      )
+      .catch((err) => {
+        setError(err.message);
+        setusers(originalUsers);
+      });
+  };
   return (
     <div>
       {error && <p className="text-danger">{error}</p>}
