@@ -51,9 +51,9 @@ const Users = () => {
     const originalUsers = [...users];
     const newuser = {
       id: 0,
-      name: "Sanjeev",
-      username: "sanjeevv",
-      email: "sanjeev@zymr.com",
+      name: "Satish",
+      username: "mgkumar",
+      email: "mgkumar@gmail.com",
     };
     setusers([newuser, ...users]);
     setError("");
