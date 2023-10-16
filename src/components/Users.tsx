@@ -41,8 +41,8 @@ const Users = () => {
     //call axios function to delete a user
     axios
       .delete("https://jsonplaceholder.typicode.com/users/" + user.id)
-      .catch((errors) => {
-        setError(errors.message);
+      .catch((err) => {
+        setError(err.message);
         setusers(originalUsers);
       });
   };
