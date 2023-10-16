@@ -47,11 +47,34 @@ const Users = () => {
         setusers(originalUsers);
       });
   };
+  const addUser = () => {
+    const originalUsers = [...users];
+    const newuser = {
+      id: 0,
+      name: "Sanjeev",
+      username: "sanjeevv",
+      email: "sanjeev@zymr.com",
+    };
+    setusers([newuser, ...users]);
+    setError("");
+    axios
+      .post("https://jsonplaceholder.typicode.com/users", newuser)
+      .then((res) => {
+        setusers([res.data, ...users]);
+      })
+      .catch((err) => {
+        console.log("Error detected in adding user");
+        setError(err.message);
+        setusers(originalUsers);
+      });
+  };
   return (
     <div>
       {error && <p className="text-danger">{error}</p>}
       {isLoading && <div className="spinner-border"></div>}
-      <button className="btn btn-primary">Add User </button>
+      <button className="btn btn-primary" onClick={() => addUser()}>
+        Add User{" "}
+      </button>
       <ul className="list-group">
         {users.map((user) => (
           <li
