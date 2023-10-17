@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios, { CanceledError } from "axios";
-
+// TODO: Refactoring the code to implement separation of concern by weekenmd
 interface User {
   id: number;
   name: string;
