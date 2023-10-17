@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios, { CanceledError } from "axios";
 // TODO: Refactoring the code to implement separation of concern by weekenmd
 //TODO: Implement custom hooks over the weekend
+//TODO: Implement util classes to implement separation of concern for all data related operations
 interface User {
   id: number;
   name: string;
