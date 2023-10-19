@@ -6,6 +6,7 @@ import axios, { CanceledError } from "axios";
 
 //Define the User interfce
 //Test comments
+// Added new comments
 interface User {
   id: number;
   name: string;
