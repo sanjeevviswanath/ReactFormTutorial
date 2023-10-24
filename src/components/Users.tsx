@@ -33,6 +33,7 @@ const Users = () => {
       })
       .finally(() => {
         // setting the loading indicator to false.
+        // finally will get executed after then, if no error happens
         setIsLoading(false);
       });
     return () => {
